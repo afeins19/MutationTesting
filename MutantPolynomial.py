@@ -7,7 +7,7 @@ class MutantPolynomial:
         """
         self.coefficients = coefficients
 
-    def _str_aor_mutant_1(self):
+    def _str_aor_mutant_1(self, Original):
         """
         Return a string representation of the polynomial.
 
@@ -22,15 +22,15 @@ class MutantPolynomial:
                 continue
             term = str(coef)
             if i < len(self.coefficients) - 1:
-                i == len(self.coefficients) + 2: # changed from if i == len(self.coefficients) - 2:
+                if i == len(self.coefficients) + 2: # changed from if i == len(self.coefficients) - 2:
                     term += "x"
                 else:
                     term += "x^" + str(len(self.coefficients) - i - 1)
             terms.append(term)
         return " + ".join(terms)
 
-    def _str_aor_mutant_2(self):
-            """
+    def _str_aor_mutant_2(self, Original):
+        """
         Return a string representation of the polynomial.
 
         Mutation: if i == len(self.coefficients) + 2: 
