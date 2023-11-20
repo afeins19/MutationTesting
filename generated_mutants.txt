@@ -1,0 +1,3172 @@
+[*] Start mutation process:
+   - targets: Polynomial.py
+   - tests: PolyTest.py
+poly1: 3x^2 + 2
+poly2: 1x + -1
+Sum: 3x^2 + 1x + 1
+Difference: 3x^2 + -1x + 3
+Product: 3x^3 + -3x^2 + 2x + -2
+Evaluation of poly1 at x=2: 14
+Evaluation of poly at a,b: -2, 23
+2.5
+1.25
+1.875
+1.5625
+1.40625
+1.484375
+1.4453125
+1.42578125
+1.416015625
+1.4111328125
+1.41357421875
+1.414794921875
+1.4141845703125
+1.41448974609375
+1.414337158203125
+1.4142608642578125
+1.4142227172851562
+1.4142036437988281
+1.4142131805419922
+1.4142179489135742
+1.4142155647277832
+1.4142143726348877
+1.41421377658844
+Root of 1x^2 + -2 within [0, 5]: 1.41421377658844
+[*] 0 tests passed:
+   - PolyTest [0.00005 s]
+[*] Start mutants generation and execution:
+   - [#   1] AOR Polynomial: 
+--------------------------------------------------------------------------------
+   17:         for (i, coef) in enumerate(self.coefficients):
+   18:             if coef == 0:
+   19:                 continue
+   20:             term = str(coef)
+-  21:             if i < len(self.coefficients) - 1:
++  21:             if i < len(self.coefficients) + 1:
+   22:                 if i == len(self.coefficients) - 2:
+   23:                     term += 'x'
+   24:                 else:
+   25:                     term += 'x^' + str((len(self.coefficients) - i) - 1)
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2x^0
+poly2: 1x + -1x^0
+Sum: 3x^2 + 1x + 1x^0
+Difference: 3x^2 + -1x + 3x^0
+Product: 3x^3 + -3x^2 + 2x + -2x^0
+Evaluation of poly1 at x=2: 14
+Evaluation of poly at a,b: -2, 23
+2.5
+1.25
+1.875
+1.5625
+1.40625
+1.484375
+1.4453125
+1.42578125
+1.416015625
+1.4111328125
+1.41357421875
+1.414794921875
+1.4141845703125
+1.41448974609375
+1.414337158203125
+1.4142608642578125
+1.4142227172851562
+1.4142036437988281
+1.4142131805419922
+1.4142179489135742
+1.4142155647277832
+1.4142143726348877
+1.41421377658844
+Root of 1x^2 + -2x^0 within [0, 5]: 1.41421377658844
+[0.00349 s] survived
+   - [#   2] AOR Polynomial: 
+--------------------------------------------------------------------------------
+   18:             if coef == 0:
+   19:                 continue
+   20:             term = str(coef)
+   21:             if i < len(self.coefficients) - 1:
+-  22:                 if i == len(self.coefficients) - 2:
++  22:                 if i == len(self.coefficients) + 2:
+   23:                     term += 'x'
+   24:                 else:
+   25:                     term += 'x^' + str((len(self.coefficients) - i) - 1)
+   26:             terms.append(term)
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: 1x^1 + -1
+Sum: 3x^2 + 1x^1 + 1
+Difference: 3x^2 + -1x^1 + 3
+Product: 3x^3 + -3x^2 + 2x^1 + -2
+Evaluation of poly1 at x=2: 14
+Evaluation of poly at a,b: -2, 23
+2.5
+1.25
+1.875
+1.5625
+1.40625
+1.484375
+1.4453125
+1.42578125
+1.416015625
+1.4111328125
+1.41357421875
+1.414794921875
+1.4141845703125
+1.41448974609375
+1.414337158203125
+1.4142608642578125
+1.4142227172851562
+1.4142036437988281
+1.4142131805419922
+1.4142179489135742
+1.4142155647277832
+1.4142143726348877
+1.41421377658844
+Root of 1x^2 + -2 within [0, 5]: 1.41421377658844
+[0.00371 s] survived
+   - [#   3] AOR Polynomial: 
+--------------------------------------------------------------------------------
+   21:             if i < len(self.coefficients) - 1:
+   22:                 if i == len(self.coefficients) - 2:
+   23:                     term += 'x'
+   24:                 else:
+-  25:                     term += 'x^' + str((len(self.coefficients) - i) - 1)
++  25:                     term += 'x^' - str((len(self.coefficients) - i) - 1)
+   26:             terms.append(term)
+   27:         return ' + '.join(terms)
+   28:     
+   29:     def __add__(self, other):
+--------------------------------------------------------------------------------
+poly1: [0.00000 s] incompetent
+   - [#   4] AOR Polynomial: 
+--------------------------------------------------------------------------------
+   21:             if i < len(self.coefficients) - 1:
+   22:                 if i == len(self.coefficients) - 2:
+   23:                     term += 'x'
+   24:                 else:
+-  25:                     term += 'x^' + str((len(self.coefficients) - i) - 1)
++  25:                     term += 'x^' + str((len(self.coefficients) + i) - 1)
+   26:             terms.append(term)
+   27:         return ' + '.join(terms)
+   28:     
+   29:     def __add__(self, other):
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: 1x + -1
+Sum: 3x^2 + 1x + 1
+Difference: 3x^2 + -1x + 3
+Product: 3x^3 + -3x^4 + 2x + -2
+Evaluation of poly1 at x=2: 14
+Evaluation of poly at a,b: -2, 23
+2.5
+1.25
+1.875
+1.5625
+1.40625
+1.484375
+1.4453125
+1.42578125
+1.416015625
+1.4111328125
+1.41357421875
+1.414794921875
+1.4141845703125
+1.41448974609375
+1.414337158203125
+1.4142608642578125
+1.4142227172851562
+1.4142036437988281
+1.4142131805419922
+1.4142179489135742
+1.4142155647277832
+1.4142143726348877
+1.41421377658844
+Root of 1x^2 + -2 within [0, 5]: 1.41421377658844
+[0.00384 s] survived
+   - [#   5] AOR Polynomial: 
+--------------------------------------------------------------------------------
+   21:             if i < len(self.coefficients) - 1:
+   22:                 if i == len(self.coefficients) - 2:
+   23:                     term += 'x'
+   24:                 else:
+-  25:                     term += 'x^' + str((len(self.coefficients) - i) - 1)
++  25:                     term += 'x^' + str((len(self.coefficients) - i) + 1)
+   26:             terms.append(term)
+   27:         return ' + '.join(terms)
+   28:     
+   29:     def __add__(self, other):
+--------------------------------------------------------------------------------
+poly1: 3x^4 + 2
+poly2: 1x + -1
+Sum: 3x^4 + 1x + 1
+Difference: 3x^4 + -1x + 3
+Product: 3x^5 + -3x^4 + 2x + -2
+Evaluation of poly1 at x=2: 14
+Evaluation of poly at a,b: -2, 23
+2.5
+1.25
+1.875
+1.5625
+1.40625
+1.484375
+1.4453125
+1.42578125
+1.416015625
+1.4111328125
+1.41357421875
+1.414794921875
+1.4141845703125
+1.41448974609375
+1.414337158203125
+1.4142608642578125
+1.4142227172851562
+1.4142036437988281
+1.4142131805419922
+1.4142179489135742
+1.4142155647277832
+1.4142143726348877
+1.41421377658844
+Root of 1x^4 + -2 within [0, 5]: 1.41421377658844
+[0.00349 s] survived
+   - [#   6] AOR Polynomial: 
+--------------------------------------------------------------------------------
+   30:         '''
+   31:         Add two polynomials and return a new polynomial.
+   32:         '''
+   33:         max_length = max(len(self.coefficients), len(other.coefficients))
+-  34:         padded_self = ([0] * (max_length - len(self.coefficients))) + self.coefficients
++  34:         padded_self = ([0] / (max_length - len(self.coefficients))) + self.coefficients
+   35:         padded_other = ([0] * (max_length - len(other.coefficients))) + other.coefficients
+   36:         result_coefficients = [a + b for (a, b) in zip(padded_self, padded_other)]
+   37:         return Polynomial(result_coefficients)
+   38:     
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: 1x + -1
+[0.00000 s] incompetent
+   - [#   7] AOR Polynomial: 
+--------------------------------------------------------------------------------
+   30:         '''
+   31:         Add two polynomials and return a new polynomial.
+   32:         '''
+   33:         max_length = max(len(self.coefficients), len(other.coefficients))
+-  34:         padded_self = ([0] * (max_length - len(self.coefficients))) + self.coefficients
++  34:         padded_self = ([0] // (max_length - len(self.coefficients))) + self.coefficients
+   35:         padded_other = ([0] * (max_length - len(other.coefficients))) + other.coefficients
+   36:         result_coefficients = [a + b for (a, b) in zip(padded_self, padded_other)]
+   37:         return Polynomial(result_coefficients)
+   38:     
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: 1x + -1
+[0.00000 s] incompetent
+   - [#   8] AOR Polynomial: 
+--------------------------------------------------------------------------------
+   30:         '''
+   31:         Add two polynomials and return a new polynomial.
+   32:         '''
+   33:         max_length = max(len(self.coefficients), len(other.coefficients))
+-  34:         padded_self = ([0] * (max_length - len(self.coefficients))) + self.coefficients
++  34:         padded_self = ([0] ** (max_length - len(self.coefficients))) + self.coefficients
+   35:         padded_other = ([0] * (max_length - len(other.coefficients))) + other.coefficients
+   36:         result_coefficients = [a + b for (a, b) in zip(padded_self, padded_other)]
+   37:         return Polynomial(result_coefficients)
+   38:     
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: 1x + -1
+[0.00000 s] incompetent
+   - [#   9] AOR Polynomial: 
+--------------------------------------------------------------------------------
+   30:         '''
+   31:         Add two polynomials and return a new polynomial.
+   32:         '''
+   33:         max_length = max(len(self.coefficients), len(other.coefficients))
+-  34:         padded_self = ([0] * (max_length - len(self.coefficients))) + self.coefficients
++  34:         padded_self = ([0] * (max_length + len(self.coefficients))) + self.coefficients
+   35:         padded_other = ([0] * (max_length - len(other.coefficients))) + other.coefficients
+   36:         result_coefficients = [a + b for (a, b) in zip(padded_self, padded_other)]
+   37:         return Polynomial(result_coefficients)
+   38:     
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: 1x + -1
+Sum: 1x + -1
+Difference: 3x^2 + -1x + 3
+Product: 3x^3 + -3x^2 + 2x + -2
+Evaluation of poly1 at x=2: 14
+Evaluation of poly at a,b: -2, 23
+2.5
+1.25
+1.875
+1.5625
+1.40625
+1.484375
+1.4453125
+1.42578125
+1.416015625
+1.4111328125
+1.41357421875
+1.414794921875
+1.4141845703125
+1.41448974609375
+1.414337158203125
+1.4142608642578125
+1.4142227172851562
+1.4142036437988281
+1.4142131805419922
+1.4142179489135742
+1.4142155647277832
+1.4142143726348877
+1.41421377658844
+Root of 1x^2 + -2 within [0, 5]: 1.41421377658844
+[0.00379 s] survived
+   - [#  10] AOR Polynomial: 
+--------------------------------------------------------------------------------
+   30:         '''
+   31:         Add two polynomials and return a new polynomial.
+   32:         '''
+   33:         max_length = max(len(self.coefficients), len(other.coefficients))
+-  34:         padded_self = ([0] * (max_length - len(self.coefficients))) + self.coefficients
++  34:         padded_self = ([0] * (max_length - len(self.coefficients))) - self.coefficients
+   35:         padded_other = ([0] * (max_length - len(other.coefficients))) + other.coefficients
+   36:         result_coefficients = [a + b for (a, b) in zip(padded_self, padded_other)]
+   37:         return Polynomial(result_coefficients)
+   38:     
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: 1x + -1
+[0.00000 s] incompetent
+   - [#  11] AOR Polynomial: 
+--------------------------------------------------------------------------------
+   31:         Add two polynomials and return a new polynomial.
+   32:         '''
+   33:         max_length = max(len(self.coefficients), len(other.coefficients))
+   34:         padded_self = ([0] * (max_length - len(self.coefficients))) + self.coefficients
+-  35:         padded_other = ([0] * (max_length - len(other.coefficients))) + other.coefficients
++  35:         padded_other = ([0] / (max_length - len(other.coefficients))) + other.coefficients
+   36:         result_coefficients = [a + b for (a, b) in zip(padded_self, padded_other)]
+   37:         return Polynomial(result_coefficients)
+   38:     
+   39:     def __sub__(self, other):
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: 1x + -1
+[0.00000 s] incompetent
+   - [#  12] AOR Polynomial: 
+--------------------------------------------------------------------------------
+   31:         Add two polynomials and return a new polynomial.
+   32:         '''
+   33:         max_length = max(len(self.coefficients), len(other.coefficients))
+   34:         padded_self = ([0] * (max_length - len(self.coefficients))) + self.coefficients
+-  35:         padded_other = ([0] * (max_length - len(other.coefficients))) + other.coefficients
++  35:         padded_other = ([0] // (max_length - len(other.coefficients))) + other.coefficients
+   36:         result_coefficients = [a + b for (a, b) in zip(padded_self, padded_other)]
+   37:         return Polynomial(result_coefficients)
+   38:     
+   39:     def __sub__(self, other):
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: 1x + -1
+[0.00000 s] incompetent
+   - [#  13] AOR Polynomial: 
+--------------------------------------------------------------------------------
+   31:         Add two polynomials and return a new polynomial.
+   32:         '''
+   33:         max_length = max(len(self.coefficients), len(other.coefficients))
+   34:         padded_self = ([0] * (max_length - len(self.coefficients))) + self.coefficients
+-  35:         padded_other = ([0] * (max_length - len(other.coefficients))) + other.coefficients
++  35:         padded_other = ([0] ** (max_length - len(other.coefficients))) + other.coefficients
+   36:         result_coefficients = [a + b for (a, b) in zip(padded_self, padded_other)]
+   37:         return Polynomial(result_coefficients)
+   38:     
+   39:     def __sub__(self, other):
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: 1x + -1
+[0.00000 s] incompetent
+   - [#  14] AOR Polynomial: 
+--------------------------------------------------------------------------------
+   31:         Add two polynomials and return a new polynomial.
+   32:         '''
+   33:         max_length = max(len(self.coefficients), len(other.coefficients))
+   34:         padded_self = ([0] * (max_length - len(self.coefficients))) + self.coefficients
+-  35:         padded_other = ([0] * (max_length - len(other.coefficients))) + other.coefficients
++  35:         padded_other = ([0] * (max_length + len(other.coefficients))) + other.coefficients
+   36:         result_coefficients = [a + b for (a, b) in zip(padded_self, padded_other)]
+   37:         return Polynomial(result_coefficients)
+   38:     
+   39:     def __sub__(self, other):
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: 1x + -1
+Sum: 3x^2 + 2
+Difference: 3x^2 + -1x + 3
+Product: 3x^3 + -3x^2 + 2x + -2
+Evaluation of poly1 at x=2: 14
+Evaluation of poly at a,b: -2, 23
+2.5
+1.25
+1.875
+1.5625
+1.40625
+1.484375
+1.4453125
+1.42578125
+1.416015625
+1.4111328125
+1.41357421875
+1.414794921875
+1.4141845703125
+1.41448974609375
+1.414337158203125
+1.4142608642578125
+1.4142227172851562
+1.4142036437988281
+1.4142131805419922
+1.4142179489135742
+1.4142155647277832
+1.4142143726348877
+1.41421377658844
+Root of 1x^2 + -2 within [0, 5]: 1.41421377658844
+[0.00395 s] survived
+   - [#  15] AOR Polynomial: 
+--------------------------------------------------------------------------------
+   31:         Add two polynomials and return a new polynomial.
+   32:         '''
+   33:         max_length = max(len(self.coefficients), len(other.coefficients))
+   34:         padded_self = ([0] * (max_length - len(self.coefficients))) + self.coefficients
+-  35:         padded_other = ([0] * (max_length - len(other.coefficients))) + other.coefficients
++  35:         padded_other = ([0] * (max_length - len(other.coefficients))) - other.coefficients
+   36:         result_coefficients = [a + b for (a, b) in zip(padded_self, padded_other)]
+   37:         return Polynomial(result_coefficients)
+   38:     
+   39:     def __sub__(self, other):
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: 1x + -1
+[0.00000 s] incompetent
+   - [#  16] AOR Polynomial: 
+--------------------------------------------------------------------------------
+   32:         '''
+   33:         max_length = max(len(self.coefficients), len(other.coefficients))
+   34:         padded_self = ([0] * (max_length - len(self.coefficients))) + self.coefficients
+   35:         padded_other = ([0] * (max_length - len(other.coefficients))) + other.coefficients
+-  36:         result_coefficients = [a + b for (a, b) in zip(padded_self, padded_other)]
++  36:         result_coefficients = [a - b for (a, b) in zip(padded_self, padded_other)]
+   37:         return Polynomial(result_coefficients)
+   38:     
+   39:     def __sub__(self, other):
+   40:         '''
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: 1x + -1
+Sum: 3x^2 + -1x + 3
+Difference: 3x^2 + -1x + 3
+Product: 3x^3 + -3x^2 + 2x + -2
+Evaluation of poly1 at x=2: 14
+Evaluation of poly at a,b: -2, 23
+2.5
+1.25
+1.875
+1.5625
+1.40625
+1.484375
+1.4453125
+1.42578125
+1.416015625
+1.4111328125
+1.41357421875
+1.414794921875
+1.4141845703125
+1.41448974609375
+1.414337158203125
+1.4142608642578125
+1.4142227172851562
+1.4142036437988281
+1.4142131805419922
+1.4142179489135742
+1.4142155647277832
+1.4142143726348877
+1.41421377658844
+Root of 1x^2 + -2 within [0, 5]: 1.41421377658844
+[0.00375 s] survived
+   - [#  17] AOR Polynomial: 
+--------------------------------------------------------------------------------
+   40:         '''
+   41:         Subtract another polynomial from this polynomial and return a new polynomial.
+   42:         '''
+   43:         max_length = max(len(self.coefficients), len(other.coefficients))
+-  44:         padded_self = ([0] * (max_length - len(self.coefficients))) + self.coefficients
++  44:         padded_self = ([0] / (max_length - len(self.coefficients))) + self.coefficients
+   45:         padded_other = ([0] * (max_length - len(other.coefficients))) + other.coefficients
+   46:         result_coefficients = [a - b for (a, b) in zip(padded_self, padded_other)]
+   47:         return Polynomial(result_coefficients)
+   48:     
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: 1x + -1
+Sum: 3x^2 + 1x + 1
+[0.00000 s] incompetent
+   - [#  18] AOR Polynomial: 
+--------------------------------------------------------------------------------
+   40:         '''
+   41:         Subtract another polynomial from this polynomial and return a new polynomial.
+   42:         '''
+   43:         max_length = max(len(self.coefficients), len(other.coefficients))
+-  44:         padded_self = ([0] * (max_length - len(self.coefficients))) + self.coefficients
++  44:         padded_self = ([0] // (max_length - len(self.coefficients))) + self.coefficients
+   45:         padded_other = ([0] * (max_length - len(other.coefficients))) + other.coefficients
+   46:         result_coefficients = [a - b for (a, b) in zip(padded_self, padded_other)]
+   47:         return Polynomial(result_coefficients)
+   48:     
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: 1x + -1
+Sum: 3x^2 + 1x + 1
+[0.00000 s] incompetent
+   - [#  19] AOR Polynomial: 
+--------------------------------------------------------------------------------
+   40:         '''
+   41:         Subtract another polynomial from this polynomial and return a new polynomial.
+   42:         '''
+   43:         max_length = max(len(self.coefficients), len(other.coefficients))
+-  44:         padded_self = ([0] * (max_length - len(self.coefficients))) + self.coefficients
++  44:         padded_self = ([0] ** (max_length - len(self.coefficients))) + self.coefficients
+   45:         padded_other = ([0] * (max_length - len(other.coefficients))) + other.coefficients
+   46:         result_coefficients = [a - b for (a, b) in zip(padded_self, padded_other)]
+   47:         return Polynomial(result_coefficients)
+   48:     
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: 1x + -1
+Sum: 3x^2 + 1x + 1
+[0.00000 s] incompetent
+   - [#  20] AOR Polynomial: 
+--------------------------------------------------------------------------------
+   40:         '''
+   41:         Subtract another polynomial from this polynomial and return a new polynomial.
+   42:         '''
+   43:         max_length = max(len(self.coefficients), len(other.coefficients))
+-  44:         padded_self = ([0] * (max_length - len(self.coefficients))) + self.coefficients
++  44:         padded_self = ([0] * (max_length + len(self.coefficients))) + self.coefficients
+   45:         padded_other = ([0] * (max_length - len(other.coefficients))) + other.coefficients
+   46:         result_coefficients = [a - b for (a, b) in zip(padded_self, padded_other)]
+   47:         return Polynomial(result_coefficients)
+   48:     
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: 1x + -1
+Sum: 3x^2 + 1x + 1
+Difference: -1x + 1
+Product: 3x^3 + -3x^2 + 2x + -2
+Evaluation of poly1 at x=2: 14
+Evaluation of poly at a,b: -2, 23
+2.5
+1.25
+1.875
+1.5625
+1.40625
+1.484375
+1.4453125
+1.42578125
+1.416015625
+1.4111328125
+1.41357421875
+1.414794921875
+1.4141845703125
+1.41448974609375
+1.414337158203125
+1.4142608642578125
+1.4142227172851562
+1.4142036437988281
+1.4142131805419922
+1.4142179489135742
+1.4142155647277832
+1.4142143726348877
+1.41421377658844
+Root of 1x^2 + -2 within [0, 5]: 1.41421377658844
+[0.00408 s] survived
+   - [#  21] AOR Polynomial: 
+--------------------------------------------------------------------------------
+   40:         '''
+   41:         Subtract another polynomial from this polynomial and return a new polynomial.
+   42:         '''
+   43:         max_length = max(len(self.coefficients), len(other.coefficients))
+-  44:         padded_self = ([0] * (max_length - len(self.coefficients))) + self.coefficients
++  44:         padded_self = ([0] * (max_length - len(self.coefficients))) - self.coefficients
+   45:         padded_other = ([0] * (max_length - len(other.coefficients))) + other.coefficients
+   46:         result_coefficients = [a - b for (a, b) in zip(padded_self, padded_other)]
+   47:         return Polynomial(result_coefficients)
+   48:     
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: 1x + -1
+Sum: 3x^2 + 1x + 1
+[0.00000 s] incompetent
+   - [#  22] AOR Polynomial: 
+--------------------------------------------------------------------------------
+   41:         Subtract another polynomial from this polynomial and return a new polynomial.
+   42:         '''
+   43:         max_length = max(len(self.coefficients), len(other.coefficients))
+   44:         padded_self = ([0] * (max_length - len(self.coefficients))) + self.coefficients
+-  45:         padded_other = ([0] * (max_length - len(other.coefficients))) + other.coefficients
++  45:         padded_other = ([0] / (max_length - len(other.coefficients))) + other.coefficients
+   46:         result_coefficients = [a - b for (a, b) in zip(padded_self, padded_other)]
+   47:         return Polynomial(result_coefficients)
+   48:     
+   49:     def __mul__(self, other):
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: 1x + -1
+Sum: 3x^2 + 1x + 1
+[0.00000 s] incompetent
+   - [#  23] AOR Polynomial: 
+--------------------------------------------------------------------------------
+   41:         Subtract another polynomial from this polynomial and return a new polynomial.
+   42:         '''
+   43:         max_length = max(len(self.coefficients), len(other.coefficients))
+   44:         padded_self = ([0] * (max_length - len(self.coefficients))) + self.coefficients
+-  45:         padded_other = ([0] * (max_length - len(other.coefficients))) + other.coefficients
++  45:         padded_other = ([0] // (max_length - len(other.coefficients))) + other.coefficients
+   46:         result_coefficients = [a - b for (a, b) in zip(padded_self, padded_other)]
+   47:         return Polynomial(result_coefficients)
+   48:     
+   49:     def __mul__(self, other):
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: 1x + -1
+Sum: 3x^2 + 1x + 1
+[0.00000 s] incompetent
+   - [#  24] AOR Polynomial: 
+--------------------------------------------------------------------------------
+   41:         Subtract another polynomial from this polynomial and return a new polynomial.
+   42:         '''
+   43:         max_length = max(len(self.coefficients), len(other.coefficients))
+   44:         padded_self = ([0] * (max_length - len(self.coefficients))) + self.coefficients
+-  45:         padded_other = ([0] * (max_length - len(other.coefficients))) + other.coefficients
++  45:         padded_other = ([0] ** (max_length - len(other.coefficients))) + other.coefficients
+   46:         result_coefficients = [a - b for (a, b) in zip(padded_self, padded_other)]
+   47:         return Polynomial(result_coefficients)
+   48:     
+   49:     def __mul__(self, other):
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: 1x + -1
+Sum: 3x^2 + 1x + 1
+[0.00000 s] incompetent
+   - [#  25] AOR Polynomial: 
+--------------------------------------------------------------------------------
+   41:         Subtract another polynomial from this polynomial and return a new polynomial.
+   42:         '''
+   43:         max_length = max(len(self.coefficients), len(other.coefficients))
+   44:         padded_self = ([0] * (max_length - len(self.coefficients))) + self.coefficients
+-  45:         padded_other = ([0] * (max_length - len(other.coefficients))) + other.coefficients
++  45:         padded_other = ([0] * (max_length + len(other.coefficients))) + other.coefficients
+   46:         result_coefficients = [a - b for (a, b) in zip(padded_self, padded_other)]
+   47:         return Polynomial(result_coefficients)
+   48:     
+   49:     def __mul__(self, other):
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: 1x + -1
+Sum: 3x^2 + 1x + 1
+Difference: 3x^2 + 2
+Product: 3x^3 + -3x^2 + 2x + -2
+Evaluation of poly1 at x=2: 14
+Evaluation of poly at a,b: -2, 23
+2.5
+1.25
+1.875
+1.5625
+1.40625
+1.484375
+1.4453125
+1.42578125
+1.416015625
+1.4111328125
+1.41357421875
+1.414794921875
+1.4141845703125
+1.41448974609375
+1.414337158203125
+1.4142608642578125
+1.4142227172851562
+1.4142036437988281
+1.4142131805419922
+1.4142179489135742
+1.4142155647277832
+1.4142143726348877
+1.41421377658844
+Root of 1x^2 + -2 within [0, 5]: 1.41421377658844
+[0.00401 s] survived
+   - [#  26] AOR Polynomial: 
+--------------------------------------------------------------------------------
+   41:         Subtract another polynomial from this polynomial and return a new polynomial.
+   42:         '''
+   43:         max_length = max(len(self.coefficients), len(other.coefficients))
+   44:         padded_self = ([0] * (max_length - len(self.coefficients))) + self.coefficients
+-  45:         padded_other = ([0] * (max_length - len(other.coefficients))) + other.coefficients
++  45:         padded_other = ([0] * (max_length - len(other.coefficients))) - other.coefficients
+   46:         result_coefficients = [a - b for (a, b) in zip(padded_self, padded_other)]
+   47:         return Polynomial(result_coefficients)
+   48:     
+   49:     def __mul__(self, other):
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: 1x + -1
+Sum: 3x^2 + 1x + 1
+[0.00000 s] incompetent
+   - [#  27] AOR Polynomial: 
+--------------------------------------------------------------------------------
+   42:         '''
+   43:         max_length = max(len(self.coefficients), len(other.coefficients))
+   44:         padded_self = ([0] * (max_length - len(self.coefficients))) + self.coefficients
+   45:         padded_other = ([0] * (max_length - len(other.coefficients))) + other.coefficients
+-  46:         result_coefficients = [a - b for (a, b) in zip(padded_self, padded_other)]
++  46:         result_coefficients = [a + b for (a, b) in zip(padded_self, padded_other)]
+   47:         return Polynomial(result_coefficients)
+   48:     
+   49:     def __mul__(self, other):
+   50:         '''
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: 1x + -1
+Sum: 3x^2 + 1x + 1
+Difference: 3x^2 + 1x + 1
+Product: 3x^3 + -3x^2 + 2x + -2
+Evaluation of poly1 at x=2: 14
+Evaluation of poly at a,b: -2, 23
+2.5
+1.25
+1.875
+1.5625
+1.40625
+1.484375
+1.4453125
+1.42578125
+1.416015625
+1.4111328125
+1.41357421875
+1.414794921875
+1.4141845703125
+1.41448974609375
+1.414337158203125
+1.4142608642578125
+1.4142227172851562
+1.4142036437988281
+1.4142131805419922
+1.4142179489135742
+1.4142155647277832
+1.4142143726348877
+1.41421377658844
+Root of 1x^2 + -2 within [0, 5]: 1.41421377658844
+[0.00366 s] survived
+   - [#  28] AOR Polynomial: 
+--------------------------------------------------------------------------------
+   49:     def __mul__(self, other):
+   50:         '''
+   51:         Multiply this polynomial by another polynomial and return a new polynomial.
+   52:         '''
+-  53:         result_deg = (len(self.coefficients) + len(other.coefficients)) - 1
++  53:         result_deg = (len(self.coefficients) - len(other.coefficients)) - 1
+   54:         result_coefficients = [0] * result_deg
+   55:         for i in range(len(self.coefficients)):
+   56:             for j in range(len(other.coefficients)):
+   57:                 result_coefficients[i + j] += self.coefficients[i] * other.coefficients[j]
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: 1x + -1
+Sum: 3x^2 + 1x + 1
+Difference: 3x^2 + -1x + 3
+[0.00000 s] incompetent
+   - [#  29] AOR Polynomial: 
+--------------------------------------------------------------------------------
+   49:     def __mul__(self, other):
+   50:         '''
+   51:         Multiply this polynomial by another polynomial and return a new polynomial.
+   52:         '''
+-  53:         result_deg = (len(self.coefficients) + len(other.coefficients)) - 1
++  53:         result_deg = (len(self.coefficients) + len(other.coefficients)) + 1
+   54:         result_coefficients = [0] * result_deg
+   55:         for i in range(len(self.coefficients)):
+   56:             for j in range(len(other.coefficients)):
+   57:                 result_coefficients[i + j] += self.coefficients[i] * other.coefficients[j]
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: 1x + -1
+Sum: 3x^2 + 1x + 1
+Difference: 3x^2 + -1x + 3
+Product: 3x^5 + -3x^4 + 2x^3 + -2x^2
+Evaluation of poly1 at x=2: 14
+Evaluation of poly at a,b: -2, 23
+2.5
+1.25
+1.875
+1.5625
+1.40625
+1.484375
+1.4453125
+1.42578125
+1.416015625
+1.4111328125
+1.41357421875
+1.414794921875
+1.4141845703125
+1.41448974609375
+1.414337158203125
+1.4142608642578125
+1.4142227172851562
+1.4142036437988281
+1.4142131805419922
+1.4142179489135742
+1.4142155647277832
+1.4142143726348877
+1.41421377658844
+Root of 1x^2 + -2 within [0, 5]: 1.41421377658844
+[0.00405 s] survived
+   - [#  30] AOR Polynomial: 
+--------------------------------------------------------------------------------
+   50:         '''
+   51:         Multiply this polynomial by another polynomial and return a new polynomial.
+   52:         '''
+   53:         result_deg = (len(self.coefficients) + len(other.coefficients)) - 1
+-  54:         result_coefficients = [0] * result_deg
++  54:         result_coefficients = [0] / result_deg
+   55:         for i in range(len(self.coefficients)):
+   56:             for j in range(len(other.coefficients)):
+   57:                 result_coefficients[i + j] += self.coefficients[i] * other.coefficients[j]
+   58:         return Polynomial(result_coefficients)
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: 1x + -1
+Sum: 3x^2 + 1x + 1
+Difference: 3x^2 + -1x + 3
+[0.00000 s] incompetent
+   - [#  31] AOR Polynomial: 
+--------------------------------------------------------------------------------
+   50:         '''
+   51:         Multiply this polynomial by another polynomial and return a new polynomial.
+   52:         '''
+   53:         result_deg = (len(self.coefficients) + len(other.coefficients)) - 1
+-  54:         result_coefficients = [0] * result_deg
++  54:         result_coefficients = [0] // result_deg
+   55:         for i in range(len(self.coefficients)):
+   56:             for j in range(len(other.coefficients)):
+   57:                 result_coefficients[i + j] += self.coefficients[i] * other.coefficients[j]
+   58:         return Polynomial(result_coefficients)
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: 1x + -1
+Sum: 3x^2 + 1x + 1
+Difference: 3x^2 + -1x + 3
+[0.00000 s] incompetent
+   - [#  32] AOR Polynomial: 
+--------------------------------------------------------------------------------
+   50:         '''
+   51:         Multiply this polynomial by another polynomial and return a new polynomial.
+   52:         '''
+   53:         result_deg = (len(self.coefficients) + len(other.coefficients)) - 1
+-  54:         result_coefficients = [0] * result_deg
++  54:         result_coefficients = [0] ** result_deg
+   55:         for i in range(len(self.coefficients)):
+   56:             for j in range(len(other.coefficients)):
+   57:                 result_coefficients[i + j] += self.coefficients[i] * other.coefficients[j]
+   58:         return Polynomial(result_coefficients)
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: 1x + -1
+Sum: 3x^2 + 1x + 1
+Difference: 3x^2 + -1x + 3
+[0.00000 s] incompetent
+   - [#  33] AOR Polynomial: 
+--------------------------------------------------------------------------------
+   53:         result_deg = (len(self.coefficients) + len(other.coefficients)) - 1
+   54:         result_coefficients = [0] * result_deg
+   55:         for i in range(len(self.coefficients)):
+   56:             for j in range(len(other.coefficients)):
+-  57:                 result_coefficients[i + j] += self.coefficients[i] * other.coefficients[j]
++  57:                 result_coefficients[i - j] += self.coefficients[i] * other.coefficients[j]
+   58:         return Polynomial(result_coefficients)
+   59:     
+   60:     def evaluate(self, x):
+   61:         '''
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: 1x + -1
+Sum: 3x^2 + 1x + 1
+Difference: 3x^2 + -1x + 3
+Product: 3x^3 + -2x^2 + 2x + -3
+Evaluation of poly1 at x=2: 14
+Evaluation of poly at a,b: -2, 23
+2.5
+1.25
+1.875
+1.5625
+1.40625
+1.484375
+1.4453125
+1.42578125
+1.416015625
+1.4111328125
+1.41357421875
+1.414794921875
+1.4141845703125
+1.41448974609375
+1.414337158203125
+1.4142608642578125
+1.4142227172851562
+1.4142036437988281
+1.4142131805419922
+1.4142179489135742
+1.4142155647277832
+1.4142143726348877
+1.41421377658844
+Root of 1x^2 + -2 within [0, 5]: 1.41421377658844
+[0.00379 s] survived
+   - [#  34] AOR Polynomial: 
+--------------------------------------------------------------------------------
+   53:         result_deg = (len(self.coefficients) + len(other.coefficients)) - 1
+   54:         result_coefficients = [0] * result_deg
+   55:         for i in range(len(self.coefficients)):
+   56:             for j in range(len(other.coefficients)):
+-  57:                 result_coefficients[i + j] += self.coefficients[i] * other.coefficients[j]
++  57:                 result_coefficients[i + j] += self.coefficients[i] / other.coefficients[j]
+   58:         return Polynomial(result_coefficients)
+   59:     
+   60:     def evaluate(self, x):
+   61:         '''
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: 1x + -1
+Sum: 3x^2 + 1x + 1
+Difference: 3x^2 + -1x + 3
+Product: 3.0x^3 + -3.0x^2 + 2.0x + -2.0
+Evaluation of poly1 at x=2: 14
+Evaluation of poly at a,b: -2, 23
+2.5
+1.25
+1.875
+1.5625
+1.40625
+1.484375
+1.4453125
+1.42578125
+1.416015625
+1.4111328125
+1.41357421875
+1.414794921875
+1.4141845703125
+1.41448974609375
+1.414337158203125
+1.4142608642578125
+1.4142227172851562
+1.4142036437988281
+1.4142131805419922
+1.4142179489135742
+1.4142155647277832
+1.4142143726348877
+1.41421377658844
+Root of 1x^2 + -2 within [0, 5]: 1.41421377658844
+[0.00356 s] survived
+   - [#  35] AOR Polynomial: 
+--------------------------------------------------------------------------------
+   53:         result_deg = (len(self.coefficients) + len(other.coefficients)) - 1
+   54:         result_coefficients = [0] * result_deg
+   55:         for i in range(len(self.coefficients)):
+   56:             for j in range(len(other.coefficients)):
+-  57:                 result_coefficients[i + j] += self.coefficients[i] * other.coefficients[j]
++  57:                 result_coefficients[i + j] += self.coefficients[i] // other.coefficients[j]
+   58:         return Polynomial(result_coefficients)
+   59:     
+   60:     def evaluate(self, x):
+   61:         '''
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: 1x + -1
+Sum: 3x^2 + 1x + 1
+Difference: 3x^2 + -1x + 3
+Product: 3x^3 + -3x^2 + 2x + -2
+Evaluation of poly1 at x=2: 14
+Evaluation of poly at a,b: -2, 23
+2.5
+1.25
+1.875
+1.5625
+1.40625
+1.484375
+1.4453125
+1.42578125
+1.416015625
+1.4111328125
+1.41357421875
+1.414794921875
+1.4141845703125
+1.41448974609375
+1.414337158203125
+1.4142608642578125
+1.4142227172851562
+1.4142036437988281
+1.4142131805419922
+1.4142179489135742
+1.4142155647277832
+1.4142143726348877
+1.41421377658844
+Root of 1x^2 + -2 within [0, 5]: 1.41421377658844
+[0.00360 s] survived
+   - [#  36] AOR Polynomial: 
+--------------------------------------------------------------------------------
+   53:         result_deg = (len(self.coefficients) + len(other.coefficients)) - 1
+   54:         result_coefficients = [0] * result_deg
+   55:         for i in range(len(self.coefficients)):
+   56:             for j in range(len(other.coefficients)):
+-  57:                 result_coefficients[i + j] += self.coefficients[i] * other.coefficients[j]
++  57:                 result_coefficients[i + j] += self.coefficients[i] ** other.coefficients[j]
+   58:         return Polynomial(result_coefficients)
+   59:     
+   60:     def evaluate(self, x):
+   61:         '''
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: 1x + -1
+Sum: 3x^2 + 1x + 1
+Difference: 3x^2 + -1x + 3
+[0.00000 s] incompetent
+   - [#  37] AOR Polynomial: 
+--------------------------------------------------------------------------------
+   62:         Evaluate the polynomial for a given value of x.
+   63:         '''
+   64:         result = 0
+   65:         for (i, coef) in enumerate(self.coefficients):
+-  66:             result += coef * (x ** ((len(self.coefficients) - i) - 1))
++  66:             result += coef / (x ** ((len(self.coefficients) - i) - 1))
+   67:         return result
+   68:     
+   69:     def get_derivative_coefficients(self):
+   70:         '''
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: 1x + -1
+Sum: 3x^2 + 1x + 1
+Difference: 3x^2 + -1x + 3
+Product: 3x^3 + -3x^2 + 2x + -2
+Evaluation of poly1 at x=2: 2.75
+[0.00000 s] incompetent
+   - [#  38] AOR Polynomial: 
+--------------------------------------------------------------------------------
+   62:         Evaluate the polynomial for a given value of x.
+   63:         '''
+   64:         result = 0
+   65:         for (i, coef) in enumerate(self.coefficients):
+-  66:             result += coef * (x ** ((len(self.coefficients) - i) - 1))
++  66:             result += coef // (x ** ((len(self.coefficients) - i) - 1))
+   67:         return result
+   68:     
+   69:     def get_derivative_coefficients(self):
+   70:         '''
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: 1x + -1
+Sum: 3x^2 + 1x + 1
+Difference: 3x^2 + -1x + 3
+Product: 3x^3 + -3x^2 + 2x + -2
+Evaluation of poly1 at x=2: 2
+[0.00000 s] incompetent
+   - [#  39] AOR Polynomial: 
+--------------------------------------------------------------------------------
+   62:         Evaluate the polynomial for a given value of x.
+   63:         '''
+   64:         result = 0
+   65:         for (i, coef) in enumerate(self.coefficients):
+-  66:             result += coef * (x ** ((len(self.coefficients) - i) - 1))
++  66:             result += coef ** (x ** ((len(self.coefficients) - i) - 1))
+   67:         return result
+   68:     
+   69:     def get_derivative_coefficients(self):
+   70:         '''
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: 1x + -1
+Sum: 3x^2 + 1x + 1
+Difference: 3x^2 + -1x + 3
+Product: 3x^3 + -3x^2 + 2x + -2
+Evaluation of poly1 at x=2: 83
+Evaluation of poly at a,b: 0, -1
+2.5
+3.75
+4.375
+4.6875
+4.84375
+4.921875
+4.9609375
+4.98046875
+4.990234375
+4.9951171875
+4.99755859375
+4.998779296875
+4.9993896484375
+4.99969482421875
+4.999847412109375
+4.9999237060546875
+4.999961853027344
+4.999980926513672
+4.999990463256836
+4.999995231628418
+4.999997615814209
+4.9999988079071045
+4.999999403953552
+4.999999701976776
+4.999999850988388
+4.999999925494194
+4.999999962747097
+4.9999999813735485
+4.999999990686774
+4.999999995343387
+4.999999997671694
+4.999999998835847
+4.999999999417923
+4.999999999708962
+4.999999999854481
+4.99999999992724
+4.99999999996362
+4.99999999998181
+4.999999999990905
+4.9999999999954525
+4.999999999997726
+4.999999999998863
+4.999999999999432
+4.999999999999716
+4.999999999999858
+4.999999999999929
+4.9999999999999645
+4.999999999999982
+4.999999999999991
+4.999999999999996
+4.999999999999998
+4.999999999999999
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+[0.00000 s] incompetent
+   - [#  40] AOR Polynomial: 
+--------------------------------------------------------------------------------
+   62:         Evaluate the polynomial for a given value of x.
+   63:         '''
+   64:         result = 0
+   65:         for (i, coef) in enumerate(self.coefficients):
+-  66:             result += coef * (x ** ((len(self.coefficients) - i) - 1))
++  66:             result += coef * (x * ((len(self.coefficients) - i) - 1))
+   67:         return result
+   68:     
+   69:     def get_derivative_coefficients(self):
+   70:         '''
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: 1x + -1
+Sum: 3x^2 + 1x + 1
+Difference: 3x^2 + -1x + 3
+Product: 3x^3 + -3x^2 + 2x + -2
+Evaluation of poly1 at x=2: 12
+Evaluation of poly at a,b: 0, 10
+2.5
+3.75
+4.375
+4.6875
+4.84375
+4.921875
+4.9609375
+4.98046875
+4.990234375
+4.9951171875
+4.99755859375
+4.998779296875
+4.9993896484375
+4.99969482421875
+4.999847412109375
+4.9999237060546875
+4.999961853027344
+4.999980926513672
+4.999990463256836
+4.999995231628418
+4.999997615814209
+4.9999988079071045
+4.999999403953552
+4.999999701976776
+4.999999850988388
+4.999999925494194
+4.999999962747097
+4.9999999813735485
+4.999999990686774
+4.999999995343387
+4.999999997671694
+4.999999998835847
+4.999999999417923
+4.999999999708962
+4.999999999854481
+4.99999999992724
+4.99999999996362
+4.99999999998181
+4.999999999990905
+4.9999999999954525
+4.999999999997726
+4.999999999998863
+4.999999999999432
+4.999999999999716
+4.999999999999858
+4.999999999999929
+4.9999999999999645
+4.999999999999982
+4.999999999999991
+4.999999999999996
+4.999999999999998
+4.999999999999999
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+[0.00000 s] incompetent
+   - [#  41] AOR Polynomial: 
+--------------------------------------------------------------------------------
+   62:         Evaluate the polynomial for a given value of x.
+   63:         '''
+   64:         result = 0
+   65:         for (i, coef) in enumerate(self.coefficients):
+-  66:             result += coef * (x ** ((len(self.coefficients) - i) - 1))
++  66:             result += coef * (x ** ((len(self.coefficients) + i) - 1))
+   67:         return result
+   68:     
+   69:     def get_derivative_coefficients(self):
+   70:         '''
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: 1x + -1
+Sum: 3x^2 + 1x + 1
+Difference: 3x^2 + -1x + 3
+Product: 3x^3 + -3x^2 + 2x + -2
+Evaluation of poly1 at x=2: 44
+Evaluation of poly at a,b: 0, -1225
+2.5
+3.75
+4.375
+4.6875
+4.84375
+4.921875
+4.9609375
+4.98046875
+4.990234375
+4.9951171875
+4.99755859375
+4.998779296875
+4.9993896484375
+4.99969482421875
+4.999847412109375
+4.9999237060546875
+4.999961853027344
+4.999980926513672
+4.999990463256836
+4.999995231628418
+4.999997615814209
+4.9999988079071045
+4.999999403953552
+4.999999701976776
+4.999999850988388
+4.999999925494194
+4.999999962747097
+4.9999999813735485
+4.999999990686774
+4.999999995343387
+4.999999997671694
+4.999999998835847
+4.999999999417923
+4.999999999708962
+4.999999999854481
+4.99999999992724
+4.99999999996362
+4.99999999998181
+4.999999999990905
+4.9999999999954525
+4.999999999997726
+4.999999999998863
+4.999999999999432
+4.999999999999716
+4.999999999999858
+4.999999999999929
+4.9999999999999645
+4.999999999999982
+4.999999999999991
+4.999999999999996
+4.999999999999998
+4.999999999999999
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+[0.00000 s] incompetent
+   - [#  42] AOR Polynomial: 
+--------------------------------------------------------------------------------
+   62:         Evaluate the polynomial for a given value of x.
+   63:         '''
+   64:         result = 0
+   65:         for (i, coef) in enumerate(self.coefficients):
+-  66:             result += coef * (x ** ((len(self.coefficients) - i) - 1))
++  66:             result += coef * (x ** ((len(self.coefficients) - i) + 1))
+   67:         return result
+   68:     
+   69:     def get_derivative_coefficients(self):
+   70:         '''
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: 1x + -1
+Sum: 3x^2 + 1x + 1
+Difference: 3x^2 + -1x + 3
+Product: 3x^3 + -3x^2 + 2x + -2
+Evaluation of poly1 at x=2: 56
+Evaluation of poly at a,b: 0, 575
+2.5
+3.75
+4.375
+4.6875
+4.84375
+4.921875
+4.9609375
+4.98046875
+4.990234375
+4.9951171875
+4.99755859375
+4.998779296875
+4.9993896484375
+4.99969482421875
+4.999847412109375
+4.9999237060546875
+4.999961853027344
+4.999980926513672
+4.999990463256836
+4.999995231628418
+4.999997615814209
+4.9999988079071045
+4.999999403953552
+4.999999701976776
+4.999999850988388
+4.999999925494194
+4.999999962747097
+4.9999999813735485
+4.999999990686774
+4.999999995343387
+4.999999997671694
+4.999999998835847
+4.999999999417923
+4.999999999708962
+4.999999999854481
+4.99999999992724
+4.99999999996362
+4.99999999998181
+4.999999999990905
+4.9999999999954525
+4.999999999997726
+4.999999999998863
+4.999999999999432
+4.999999999999716
+4.999999999999858
+4.999999999999929
+4.9999999999999645
+4.999999999999982
+4.999999999999991
+4.999999999999996
+4.999999999999998
+4.999999999999999
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+[0.00000 s] incompetent
+   - [#  43] AOR Polynomial: 
+--------------------------------------------------------------------------------
+   69:     def get_derivative_coefficients(self):
+   70:         '''
+   71:         Return the coefficients of the derivative polynomial.
+   72:         '''
+-  73:         return [i * coeff for (i, coeff) in enumerate(list(reversed(self.coefficients))[:-1])]
++  73:         return [i / coeff for (i, coeff) in enumerate(list(reversed(self.coefficients))[:-1])]
+   74:     
+   75:     
+   76:     def find_root_bisection(self, a, b, epsilon=1e-06, max_iterations=100):
+   77:         '''
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: 1x + -1
+Sum: 3x^2 + 1x + 1
+Difference: 3x^2 + -1x + 3
+Product: 3x^3 + -3x^2 + 2x + -2
+Evaluation of poly1 at x=2: 14
+Evaluation of poly at a,b: -2, 23
+2.5
+1.25
+1.875
+1.5625
+1.40625
+1.484375
+1.4453125
+1.42578125
+1.416015625
+1.4111328125
+1.41357421875
+1.414794921875
+1.4141845703125
+1.41448974609375
+1.414337158203125
+1.4142608642578125
+1.4142227172851562
+1.4142036437988281
+1.4142131805419922
+1.4142179489135742
+1.4142155647277832
+1.4142143726348877
+1.41421377658844
+Root of 1x^2 + -2 within [0, 5]: 1.41421377658844
+[0.00419 s] survived
+   - [#  44] AOR Polynomial: 
+--------------------------------------------------------------------------------
+   69:     def get_derivative_coefficients(self):
+   70:         '''
+   71:         Return the coefficients of the derivative polynomial.
+   72:         '''
+-  73:         return [i * coeff for (i, coeff) in enumerate(list(reversed(self.coefficients))[:-1])]
++  73:         return [i // coeff for (i, coeff) in enumerate(list(reversed(self.coefficients))[:-1])]
+   74:     
+   75:     
+   76:     def find_root_bisection(self, a, b, epsilon=1e-06, max_iterations=100):
+   77:         '''
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: 1x + -1
+Sum: 3x^2 + 1x + 1
+Difference: 3x^2 + -1x + 3
+Product: 3x^3 + -3x^2 + 2x + -2
+Evaluation of poly1 at x=2: 14
+Evaluation of poly at a,b: -2, 23
+2.5
+1.25
+1.875
+1.5625
+1.40625
+1.484375
+1.4453125
+1.42578125
+1.416015625
+1.4111328125
+1.41357421875
+1.414794921875
+1.4141845703125
+1.41448974609375
+1.414337158203125
+1.4142608642578125
+1.4142227172851562
+1.4142036437988281
+1.4142131805419922
+1.4142179489135742
+1.4142155647277832
+1.4142143726348877
+1.41421377658844
+Root of 1x^2 + -2 within [0, 5]: 1.41421377658844
+[0.00375 s] survived
+   - [#  45] AOR Polynomial: 
+--------------------------------------------------------------------------------
+   69:     def get_derivative_coefficients(self):
+   70:         '''
+   71:         Return the coefficients of the derivative polynomial.
+   72:         '''
+-  73:         return [i * coeff for (i, coeff) in enumerate(list(reversed(self.coefficients))[:-1])]
++  73:         return [i ** coeff for (i, coeff) in enumerate(list(reversed(self.coefficients))[:-1])]
+   74:     
+   75:     
+   76:     def find_root_bisection(self, a, b, epsilon=1e-06, max_iterations=100):
+   77:         '''
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: 1x + -1
+Sum: 3x^2 + 1x + 1
+Difference: 3x^2 + -1x + 3
+Product: 3x^3 + -3x^2 + 2x + -2
+Evaluation of poly1 at x=2: 14
+Evaluation of poly at a,b: -2, 23
+2.5
+1.25
+1.875
+1.5625
+1.40625
+1.484375
+1.4453125
+1.42578125
+1.416015625
+1.4111328125
+1.41357421875
+1.414794921875
+1.4141845703125
+1.41448974609375
+1.414337158203125
+1.4142608642578125
+1.4142227172851562
+1.4142036437988281
+1.4142131805419922
+1.4142179489135742
+1.4142155647277832
+1.4142143726348877
+1.41421377658844
+Root of 1x^2 + -2 within [0, 5]: 1.41421377658844
+[0.00356 s] survived
+   - [#  46] AOR Polynomial: 
+--------------------------------------------------------------------------------
+   69:     def get_derivative_coefficients(self):
+   70:         '''
+   71:         Return the coefficients of the derivative polynomial.
+   72:         '''
+-  73:         return [i * coeff for (i, coeff) in enumerate(list(reversed(self.coefficients))[:-1])]
++  73:         return [i * coeff for (i, coeff) in enumerate(list(reversed(self.coefficients))[:+1])]
+   74:     
+   75:     
+   76:     def find_root_bisection(self, a, b, epsilon=1e-06, max_iterations=100):
+   77:         '''
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: 1x + -1
+Sum: 3x^2 + 1x + 1
+Difference: 3x^2 + -1x + 3
+Product: 3x^3 + -3x^2 + 2x + -2
+Evaluation of poly1 at x=2: 14
+Evaluation of poly at a,b: -2, 23
+2.5
+1.25
+1.875
+1.5625
+1.40625
+1.484375
+1.4453125
+1.42578125
+1.416015625
+1.4111328125
+1.41357421875
+1.414794921875
+1.4141845703125
+1.41448974609375
+1.414337158203125
+1.4142608642578125
+1.4142227172851562
+1.4142036437988281
+1.4142131805419922
+1.4142179489135742
+1.4142155647277832
+1.4142143726348877
+1.41421377658844
+Root of 1x^2 + -2 within [0, 5]: 1.41421377658844
+[0.00380 s] survived
+   - [#  47] AOR Polynomial: 
+--------------------------------------------------------------------------------
+   81:             :param epsilon: Tolerance for the root approximation.
+   82:             :param max_iterations: Maximum number of iterations.
+   83:             :return: Approximated root within the specified interval.
+   84:             '''
+-  85:         if self.evaluate(a) * self.evaluate(b) > 0:
++  85:         if self.evaluate(a) / self.evaluate(b) > 0:
+   86:             raise ValueError('The chosen interval does not contain a root.')
+   87:         
+   88:         for _ in range(max_iterations):
+   89:             c = (a + b) / 2
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: 1x + -1
+Sum: 3x^2 + 1x + 1
+Difference: 3x^2 + -1x + 3
+Product: 3x^3 + -3x^2 + 2x + -2
+Evaluation of poly1 at x=2: 14
+Evaluation of poly at a,b: -2, 23
+2.5
+1.25
+1.875
+1.5625
+1.40625
+1.484375
+1.4453125
+1.42578125
+1.416015625
+1.4111328125
+1.41357421875
+1.414794921875
+1.4141845703125
+1.41448974609375
+1.414337158203125
+1.4142608642578125
+1.4142227172851562
+1.4142036437988281
+1.4142131805419922
+1.4142179489135742
+1.4142155647277832
+1.4142143726348877
+1.41421377658844
+Root of 1x^2 + -2 within [0, 5]: 1.41421377658844
+[0.00393 s] survived
+   - [#  48] AOR Polynomial: 
+--------------------------------------------------------------------------------
+   81:             :param epsilon: Tolerance for the root approximation.
+   82:             :param max_iterations: Maximum number of iterations.
+   83:             :return: Approximated root within the specified interval.
+   84:             '''
+-  85:         if self.evaluate(a) * self.evaluate(b) > 0:
++  85:         if self.evaluate(a) // self.evaluate(b) > 0:
+   86:             raise ValueError('The chosen interval does not contain a root.')
+   87:         
+   88:         for _ in range(max_iterations):
+   89:             c = (a + b) / 2
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: 1x + -1
+Sum: 3x^2 + 1x + 1
+Difference: 3x^2 + -1x + 3
+Product: 3x^3 + -3x^2 + 2x + -2
+Evaluation of poly1 at x=2: 14
+Evaluation of poly at a,b: -2, 23
+2.5
+1.25
+1.875
+1.5625
+1.40625
+1.484375
+1.4453125
+1.42578125
+1.416015625
+1.4111328125
+1.41357421875
+1.414794921875
+1.4141845703125
+1.41448974609375
+1.414337158203125
+1.4142608642578125
+1.4142227172851562
+1.4142036437988281
+1.4142131805419922
+1.4142179489135742
+1.4142155647277832
+1.4142143726348877
+1.41421377658844
+Root of 1x^2 + -2 within [0, 5]: 1.41421377658844
+[0.00361 s] survived
+   - [#  49] AOR Polynomial: 
+--------------------------------------------------------------------------------
+   81:             :param epsilon: Tolerance for the root approximation.
+   82:             :param max_iterations: Maximum number of iterations.
+   83:             :return: Approximated root within the specified interval.
+   84:             '''
+-  85:         if self.evaluate(a) * self.evaluate(b) > 0:
++  85:         if self.evaluate(a) ** self.evaluate(b) > 0:
+   86:             raise ValueError('The chosen interval does not contain a root.')
+   87:         
+   88:         for _ in range(max_iterations):
+   89:             c = (a + b) / 2
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: 1x + -1
+Sum: 3x^2 + 1x + 1
+Difference: 3x^2 + -1x + 3
+Product: 3x^3 + -3x^2 + 2x + -2
+Evaluation of poly1 at x=2: 14
+Evaluation of poly at a,b: -2, 23
+2.5
+1.25
+1.875
+1.5625
+1.40625
+1.484375
+1.4453125
+1.42578125
+1.416015625
+1.4111328125
+1.41357421875
+1.414794921875
+1.4141845703125
+1.41448974609375
+1.414337158203125
+1.4142608642578125
+1.4142227172851562
+1.4142036437988281
+1.4142131805419922
+1.4142179489135742
+1.4142155647277832
+1.4142143726348877
+1.41421377658844
+Root of 1x^2 + -2 within [0, 5]: 1.41421377658844
+[0.00376 s] survived
+   - [#  50] AOR Polynomial: 
+--------------------------------------------------------------------------------
+   85:         if self.evaluate(a) * self.evaluate(b) > 0:
+   86:             raise ValueError('The chosen interval does not contain a root.')
+   87:         
+   88:         for _ in range(max_iterations):
+-  89:             c = (a + b) / 2
++  89:             c = (a - b) / 2
+   90:             print(c)
+   91:             if abs(self.evaluate(c)) < epsilon:
+   92:                 return c
+   93:             if self.evaluate(c) * self.evaluate(a) < 0:
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: 1x + -1
+Sum: 3x^2 + 1x + 1
+Difference: 3x^2 + -1x + 3
+Product: 3x^3 + -3x^2 + 2x + -2
+Evaluation of poly1 at x=2: 14
+Evaluation of poly at a,b: -2, 23
+-2.5
+1.25
+1.875
+-0.3125
+-1.09375
+-1.484375
+0.1953125
+0.83984375
+1.162109375
+1.3232421875
+1.40380859375
+1.444091796875
+-0.0201416015625
+-0.73211669921875
+-1.088104248046875
+-1.2660980224609375
+-1.3550949096679688
+-1.3995933532714844
+-1.4218425750732422
+0.011124610900878906
+0.7164835929870605
+1.0691630840301514
+1.2455028295516968
+1.3336727023124695
+1.3777576386928558
+1.399800106883049
+1.4108213409781456
+1.416331958025694
+-0.002755308523774147
+-0.709543633274734
+-1.062937795650214
+-1.239634876837954
+-1.327983417431824
+-1.372157687728759
+-1.3942448228772264
+-1.4052883904514601
+-1.410810174238577
+-1.4135710661321355
+-1.4149515120789147
+0.0006902229733896093
+0.7078208675261521
+1.0613861898025334
+1.238168850940724
+1.3265601815098194
+1.370755846794367
+1.3928536794366408
+1.4039025957577778
+1.4094270539183462
+1.4121892829986304
+1.4135703975387726
+1.4142609548088436
+-0.0003452786350355286
+-0.7073031167219396
+-1.0607820357653917
+-1.2375214952871176
+-1.3258912250479806
+-1.3700760899284121
+-1.3921685223686278
+-1.4032147385887357
+-1.4087378466987897
+-1.4114994007538166
+-1.41288017778133
+-1.4135705662950868
+-1.4139157605519652
+-1.4140883576804044
+-1.414174656244624
+-1.4142178055267338
+2.1574641054900034e-05
+0.7071196900838943
+1.060668747805314
+1.237443276666024
+1.3258305410963789
+1.3700241733115563
+1.392120989419145
+1.4031693974729396
+1.4086936014998366
+1.411455703513285
+1.4128367545200096
+1.4135272800233718
+1.413872542775053
+1.4140451741508935
+1.4141314898388138
+1.4141746476827737
+1.4141962266047536
+1.4142070160657436
+1.4142124107962388
+1.4142151081614864
+-1.3486826238029437e-06
+-0.7071082284220551
+-1.0606616682917709
+-1.2374383882266287
+-1.3258267481940575
+-1.370020928177772
+-1.3921180181696293
+-1.4031665631655579
+-1.4086908356635222
+-1.4114529719125044
+-1.4128340400369954
+-1.4135245740992408
+-1.4138698411303636
+[0.00000 s] incompetent
+   - [#  51] AOR Polynomial: 
+--------------------------------------------------------------------------------
+   85:         if self.evaluate(a) * self.evaluate(b) > 0:
+   86:             raise ValueError('The chosen interval does not contain a root.')
+   87:         
+   88:         for _ in range(max_iterations):
+-  89:             c = (a + b) / 2
++  89:             c = (a + b) // 2
+   90:             print(c)
+   91:             if abs(self.evaluate(c)) < epsilon:
+   92:                 return c
+   93:             if self.evaluate(c) * self.evaluate(a) < 0:
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: 1x + -1
+Sum: 3x^2 + 1x + 1
+Difference: 3x^2 + -1x + 3
+Product: 3x^3 + -3x^2 + 2x + -2
+Evaluation of poly1 at x=2: 14
+Evaluation of poly at a,b: -2, 23
+2
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+[0.00000 s] incompetent
+   - [#  52] AOR Polynomial: 
+--------------------------------------------------------------------------------
+   85:         if self.evaluate(a) * self.evaluate(b) > 0:
+   86:             raise ValueError('The chosen interval does not contain a root.')
+   87:         
+   88:         for _ in range(max_iterations):
+-  89:             c = (a + b) / 2
++  89:             c = (a + b) * 2
+   90:             print(c)
+   91:             if abs(self.evaluate(c)) < epsilon:
+   92:                 return c
+   93:             if self.evaluate(c) * self.evaluate(a) < 0:
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: 1x + -1
+Sum: 3x^2 + 1x + 1
+Difference: 3x^2 + -1x + 3
+Product: 3x^3 + -3x^2 + 2x + -2
+Evaluation of poly1 at x=2: 14
+Evaluation of poly at a,b: -2, 23
+10
+20
+40
+80
+160
+320
+640
+1280
+2560
+5120
+10240
+20480
+40960
+81920
+163840
+327680
+655360
+1310720
+2621440
+5242880
+10485760
+20971520
+41943040
+83886080
+167772160
+335544320
+671088640
+1342177280
+2684354560
+5368709120
+10737418240
+21474836480
+42949672960
+85899345920
+171798691840
+343597383680
+687194767360
+1374389534720
+2748779069440
+5497558138880
+10995116277760
+21990232555520
+43980465111040
+87960930222080
+175921860444160
+351843720888320
+703687441776640
+1407374883553280
+2814749767106560
+5629499534213120
+11258999068426240
+22517998136852480
+45035996273704960
+90071992547409920
+180143985094819840
+360287970189639680
+720575940379279360
+1441151880758558720
+2882303761517117440
+5764607523034234880
+11529215046068469760
+23058430092136939520
+46116860184273879040
+92233720368547758080
+184467440737095516160
+368934881474191032320
+737869762948382064640
+1475739525896764129280
+2951479051793528258560
+5902958103587056517120
+11805916207174113034240
+23611832414348226068480
+47223664828696452136960
+94447329657392904273920
+188894659314785808547840
+377789318629571617095680
+755578637259143234191360
+1511157274518286468382720
+3022314549036572936765440
+6044629098073145873530880
+12089258196146291747061760
+24178516392292583494123520
+48357032784585166988247040
+96714065569170333976494080
+193428131138340667952988160
+386856262276681335905976320
+773712524553362671811952640
+1547425049106725343623905280
+3094850098213450687247810560
+6189700196426901374495621120
+12379400392853802748991242240
+24758800785707605497982484480
+49517601571415210995964968960
+99035203142830421991929937920
+198070406285660843983859875840
+396140812571321687967719751680
+792281625142643375935439503360
+1584563250285286751870879006720
+3169126500570573503741758013440
+6338253001141147007483516026880
+[0.00000 s] incompetent
+   - [#  53] AOR Polynomial: 
+--------------------------------------------------------------------------------
+   89:             c = (a + b) / 2
+   90:             print(c)
+   91:             if abs(self.evaluate(c)) < epsilon:
+   92:                 return c
+-  93:             if self.evaluate(c) * self.evaluate(a) < 0:
++  93:             if self.evaluate(c) / self.evaluate(a) < 0:
+   94:                 b = c
+   95:             else:
+   96:                 a = c
+   97:         
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: 1x + -1
+Sum: 3x^2 + 1x + 1
+Difference: 3x^2 + -1x + 3
+Product: 3x^3 + -3x^2 + 2x + -2
+Evaluation of poly1 at x=2: 14
+Evaluation of poly at a,b: -2, 23
+2.5
+1.25
+1.875
+1.5625
+1.40625
+1.484375
+1.4453125
+1.42578125
+1.416015625
+1.4111328125
+1.41357421875
+1.414794921875
+1.4141845703125
+1.41448974609375
+1.414337158203125
+1.4142608642578125
+1.4142227172851562
+1.4142036437988281
+1.4142131805419922
+1.4142179489135742
+1.4142155647277832
+1.4142143726348877
+1.41421377658844
+Root of 1x^2 + -2 within [0, 5]: 1.41421377658844
+[0.00425 s] survived
+   - [#  54] AOR Polynomial: 
+--------------------------------------------------------------------------------
+   89:             c = (a + b) / 2
+   90:             print(c)
+   91:             if abs(self.evaluate(c)) < epsilon:
+   92:                 return c
+-  93:             if self.evaluate(c) * self.evaluate(a) < 0:
++  93:             if self.evaluate(c) // self.evaluate(a) < 0:
+   94:                 b = c
+   95:             else:
+   96:                 a = c
+   97:         
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: 1x + -1
+Sum: 3x^2 + 1x + 1
+Difference: 3x^2 + -1x + 3
+Product: 3x^3 + -3x^2 + 2x + -2
+Evaluation of poly1 at x=2: 14
+Evaluation of poly at a,b: -2, 23
+2.5
+1.25
+1.875
+1.5625
+1.40625
+1.484375
+1.4453125
+1.42578125
+1.416015625
+1.4111328125
+1.41357421875
+1.414794921875
+1.4141845703125
+1.41448974609375
+1.414337158203125
+1.4142608642578125
+1.4142227172851562
+1.4142036437988281
+1.4142131805419922
+1.4142179489135742
+1.4142155647277832
+1.4142143726348877
+1.41421377658844
+Root of 1x^2 + -2 within [0, 5]: 1.41421377658844
+[0.00363 s] survived
+   - [#  55] AOR Polynomial: 
+--------------------------------------------------------------------------------
+   89:             c = (a + b) / 2
+   90:             print(c)
+   91:             if abs(self.evaluate(c)) < epsilon:
+   92:                 return c
+-  93:             if self.evaluate(c) * self.evaluate(a) < 0:
++  93:             if self.evaluate(c) ** self.evaluate(a) < 0:
+   94:                 b = c
+   95:             else:
+   96:                 a = c
+   97:         
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: 1x + -1
+Sum: 3x^2 + 1x + 1
+Difference: 3x^2 + -1x + 3
+Product: 3x^3 + -3x^2 + 2x + -2
+Evaluation of poly1 at x=2: 14
+Evaluation of poly at a,b: -2, 23
+2.5
+3.75
+4.375
+4.6875
+4.84375
+4.921875
+4.9609375
+4.98046875
+4.990234375
+4.9951171875
+4.99755859375
+4.998779296875
+4.9993896484375
+4.99969482421875
+4.999847412109375
+4.9999237060546875
+4.999961853027344
+4.999980926513672
+4.999990463256836
+4.999995231628418
+4.999997615814209
+4.9999988079071045
+4.999999403953552
+4.999999701976776
+4.999999850988388
+4.999999925494194
+4.999999962747097
+4.9999999813735485
+4.999999990686774
+4.999999995343387
+4.999999997671694
+4.999999998835847
+4.999999999417923
+4.999999999708962
+4.999999999854481
+4.99999999992724
+4.99999999996362
+4.99999999998181
+4.999999999990905
+4.9999999999954525
+4.999999999997726
+4.999999999998863
+4.999999999999432
+4.999999999999716
+4.999999999999858
+4.999999999999929
+4.9999999999999645
+4.999999999999982
+4.999999999999991
+4.999999999999996
+4.999999999999998
+4.999999999999999
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+5.0
+[0.00000 s] incompetent
+   - [#  56] AOR Polynomial: 
+--------------------------------------------------------------------------------
+   98:         raise ValueError('Bisection method did not converge within the maximum number of iterations.')
+   99: 
+  100: 
+  101: poly1 = Polynomial([3, 0, 2])
+- 102: poly2 = Polynomial([1, -1])
++ 102: poly2 = Polynomial([1, +1])
+  103: 
+  104: print('poly1:', poly1)
+  105: print('poly2:', poly2)
+  106: 
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: 1x + 1
+Sum: 3x^2 + 1x + 3
+Difference: 3x^2 + -1x + 1
+Product: 3x^3 + 3x^2 + 2x + 2
+Evaluation of poly1 at x=2: 14
+Evaluation of poly at a,b: -2, 23
+2.5
+1.25
+1.875
+1.5625
+1.40625
+1.484375
+1.4453125
+1.42578125
+1.416015625
+1.4111328125
+1.41357421875
+1.414794921875
+1.4141845703125
+1.41448974609375
+1.414337158203125
+1.4142608642578125
+1.4142227172851562
+1.4142036437988281
+1.4142131805419922
+1.4142179489135742
+1.4142155647277832
+1.4142143726348877
+1.41421377658844
+Root of 1x^2 + -2 within [0, 5]: 1.41421377658844
+[0.00416 s] survived
+   - [#  57] AOR Polynomial: 
+--------------------------------------------------------------------------------
+  103: 
+  104: print('poly1:', poly1)
+  105: print('poly2:', poly2)
+  106: 
+- 107: poly_sum = poly1 + poly2
++ 107: poly_sum = poly1 - poly2
+  108: print('Sum:', poly_sum)
+  109: 
+  110: poly_diff = poly1 - poly2
+  111: print('Difference:', poly_diff)
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: 1x + -1
+Sum: 3x^2 + -1x + 3
+Difference: 3x^2 + -1x + 3
+Product: 3x^3 + -3x^2 + 2x + -2
+Evaluation of poly1 at x=2: 14
+Evaluation of poly at a,b: -2, 23
+2.5
+1.25
+1.875
+1.5625
+1.40625
+1.484375
+1.4453125
+1.42578125
+1.416015625
+1.4111328125
+1.41357421875
+1.414794921875
+1.4141845703125
+1.41448974609375
+1.414337158203125
+1.4142608642578125
+1.4142227172851562
+1.4142036437988281
+1.4142131805419922
+1.4142179489135742
+1.4142155647277832
+1.4142143726348877
+1.41421377658844
+Root of 1x^2 + -2 within [0, 5]: 1.41421377658844
+[0.00369 s] survived
+   - [#  58] AOR Polynomial: 
+--------------------------------------------------------------------------------
+  106: 
+  107: poly_sum = poly1 + poly2
+  108: print('Sum:', poly_sum)
+  109: 
+- 110: poly_diff = poly1 - poly2
++ 110: poly_diff = poly1 + poly2
+  111: print('Difference:', poly_diff)
+  112: 
+  113: poly_product = poly1 * poly2
+  114: print('Product:', poly_product)
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: 1x + -1
+Sum: 3x^2 + 1x + 1
+Difference: 3x^2 + 1x + 1
+Product: 3x^3 + -3x^2 + 2x + -2
+Evaluation of poly1 at x=2: 14
+Evaluation of poly at a,b: -2, 23
+2.5
+1.25
+1.875
+1.5625
+1.40625
+1.484375
+1.4453125
+1.42578125
+1.416015625
+1.4111328125
+1.41357421875
+1.414794921875
+1.4141845703125
+1.41448974609375
+1.414337158203125
+1.4142608642578125
+1.4142227172851562
+1.4142036437988281
+1.4142131805419922
+1.4142179489135742
+1.4142155647277832
+1.4142143726348877
+1.41421377658844
+Root of 1x^2 + -2 within [0, 5]: 1.41421377658844
+[0.00366 s] survived
+   - [#  59] AOR Polynomial: 
+--------------------------------------------------------------------------------
+  109: 
+  110: poly_diff = poly1 - poly2
+  111: print('Difference:', poly_diff)
+  112: 
+- 113: poly_product = poly1 * poly2
++ 113: poly_product = poly1 / poly2
+  114: print('Product:', poly_product)
+  115: 
+  116: x_value = 2
+  117: result = poly1.evaluate(x_value)
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: 1x + -1
+Sum: 3x^2 + 1x + 1
+Difference: 3x^2 + -1x + 3
+[0.00000 s] incompetent
+   - [#  60] AOR Polynomial: 
+--------------------------------------------------------------------------------
+  109: 
+  110: poly_diff = poly1 - poly2
+  111: print('Difference:', poly_diff)
+  112: 
+- 113: poly_product = poly1 * poly2
++ 113: poly_product = poly1 // poly2
+  114: print('Product:', poly_product)
+  115: 
+  116: x_value = 2
+  117: result = poly1.evaluate(x_value)
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: 1x + -1
+Sum: 3x^2 + 1x + 1
+Difference: 3x^2 + -1x + 3
+[0.00000 s] incompetent
+   - [#  61] AOR Polynomial: 
+--------------------------------------------------------------------------------
+  109: 
+  110: poly_diff = poly1 - poly2
+  111: print('Difference:', poly_diff)
+  112: 
+- 113: poly_product = poly1 * poly2
++ 113: poly_product = poly1 ** poly2
+  114: print('Product:', poly_product)
+  115: 
+  116: x_value = 2
+  117: result = poly1.evaluate(x_value)
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: 1x + -1
+Sum: 3x^2 + 1x + 1
+Difference: 3x^2 + -1x + 3
+[0.00000 s] incompetent
+   - [#  62] AOR Polynomial: 
+--------------------------------------------------------------------------------
+  116: x_value = 2
+  117: result = poly1.evaluate(x_value)
+  118: print(f'Evaluation of poly1 at x={x_value}: {result}')
+  119: 
+- 120: poly = Polynomial([1, 0, -2])
++ 120: poly = Polynomial([1, 0, +2])
+  121: print(f'Evaluation of poly at a,b: {poly.evaluate(0)}, {poly.evaluate(5)}')
+  122: root = poly.find_root_bisection(0, 5)
+  123: print(f'Root of {poly} within [0, 5]: {root}')
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: 1x + -1
+Sum: 3x^2 + 1x + 1
+Difference: 3x^2 + -1x + 3
+Product: 3x^3 + -3x^2 + 2x + -2
+Evaluation of poly1 at x=2: 14
+Evaluation of poly at a,b: 2, 27
+[0.00000 s] incompetent
+   - [#  63] ASR Polynomial: 
+--------------------------------------------------------------------------------
+   19:                 continue
+   20:             term = str(coef)
+   21:             if i < len(self.coefficients) - 1:
+   22:                 if i == len(self.coefficients) - 2:
+-  23:                     term += 'x'
++  23:                     term -= 'x'
+   24:                 else:
+   25:                     term += 'x^' + str((len(self.coefficients) - i) - 1)
+   26:             terms.append(term)
+   27:         return ' + '.join(terms)
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: [0.00000 s] incompetent
+   - [#  64] ASR Polynomial: 
+--------------------------------------------------------------------------------
+   21:             if i < len(self.coefficients) - 1:
+   22:                 if i == len(self.coefficients) - 2:
+   23:                     term += 'x'
+   24:                 else:
+-  25:                     term += 'x^' + str((len(self.coefficients) - i) - 1)
++  25:                     term -= 'x^' + str((len(self.coefficients) - i) - 1)
+   26:             terms.append(term)
+   27:         return ' + '.join(terms)
+   28:     
+   29:     def __add__(self, other):
+--------------------------------------------------------------------------------
+poly1: [0.00000 s] incompetent
+   - [#  65] ASR Polynomial: 
+--------------------------------------------------------------------------------
+   53:         result_deg = (len(self.coefficients) + len(other.coefficients)) - 1
+   54:         result_coefficients = [0] * result_deg
+   55:         for i in range(len(self.coefficients)):
+   56:             for j in range(len(other.coefficients)):
+-  57:                 result_coefficients[i + j] += self.coefficients[i] * other.coefficients[j]
++  57:                 result_coefficients[i + j] -= self.coefficients[i] * other.coefficients[j]
+   58:         return Polynomial(result_coefficients)
+   59:     
+   60:     def evaluate(self, x):
+   61:         '''
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: 1x + -1
+Sum: 3x^2 + 1x + 1
+Difference: 3x^2 + -1x + 3
+Product: -3x^3 + 3x^2 + -2x + 2
+Evaluation of poly1 at x=2: 14
+Evaluation of poly at a,b: -2, 23
+2.5
+1.25
+1.875
+1.5625
+1.40625
+1.484375
+1.4453125
+1.42578125
+1.416015625
+1.4111328125
+1.41357421875
+1.414794921875
+1.4141845703125
+1.41448974609375
+1.414337158203125
+1.4142608642578125
+1.4142227172851562
+1.4142036437988281
+1.4142131805419922
+1.4142179489135742
+1.4142155647277832
+1.4142143726348877
+1.41421377658844
+Root of 1x^2 + -2 within [0, 5]: 1.41421377658844
+[0.00420 s] survived
+   - [#  66] ASR Polynomial: 
+--------------------------------------------------------------------------------
+   62:         Evaluate the polynomial for a given value of x.
+   63:         '''
+   64:         result = 0
+   65:         for (i, coef) in enumerate(self.coefficients):
+-  66:             result += coef * (x ** ((len(self.coefficients) - i) - 1))
++  66:             result -= coef * (x ** ((len(self.coefficients) - i) - 1))
+   67:         return result
+   68:     
+   69:     def get_derivative_coefficients(self):
+   70:         '''
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: 1x + -1
+Sum: 3x^2 + 1x + 1
+Difference: 3x^2 + -1x + 3
+Product: 3x^3 + -3x^2 + 2x + -2
+Evaluation of poly1 at x=2: -14
+Evaluation of poly at a,b: 2, -23
+2.5
+1.25
+1.875
+1.5625
+1.40625
+1.484375
+1.4453125
+1.42578125
+1.416015625
+1.4111328125
+1.41357421875
+1.414794921875
+1.4141845703125
+1.41448974609375
+1.414337158203125
+1.4142608642578125
+1.4142227172851562
+1.4142036437988281
+1.4142131805419922
+1.4142179489135742
+1.4142155647277832
+1.4142143726348877
+1.41421377658844
+Root of 1x^2 + -2 within [0, 5]: 1.41421377658844
+[0.00372 s] survived
+   - [#  67] COI Polynomial: 
+--------------------------------------------------------------------------------
+    9:     def __str__(self):
+   10:         '''
+   11:         Return a string representation of the polynomial.
+   12:         '''
+-  13:         if len(self.coefficients) == 0:
++  13:         if not (len(self.coefficients) == 0):
+   14:             return '0'
+   15:         
+   16:         terms = []
+   17:         for (i, coef) in enumerate(self.coefficients):
+--------------------------------------------------------------------------------
+poly1: 0
+poly2: 0
+Sum: 0
+Difference: 0
+Product: 0
+Evaluation of poly1 at x=2: 14
+Evaluation of poly at a,b: -2, 23
+2.5
+1.25
+1.875
+1.5625
+1.40625
+1.484375
+1.4453125
+1.42578125
+1.416015625
+1.4111328125
+1.41357421875
+1.414794921875
+1.4141845703125
+1.41448974609375
+1.414337158203125
+1.4142608642578125
+1.4142227172851562
+1.4142036437988281
+1.4142131805419922
+1.4142179489135742
+1.4142155647277832
+1.4142143726348877
+1.41421377658844
+Root of 0 within [0, 5]: 1.41421377658844
+[0.00366 s] survived
+   - [#  68] COI Polynomial: 
+--------------------------------------------------------------------------------
+   14:             return '0'
+   15:         
+   16:         terms = []
+   17:         for (i, coef) in enumerate(self.coefficients):
+-  18:             if coef == 0:
++  18:             if not (coef == 0):
+   19:                 continue
+   20:             term = str(coef)
+   21:             if i < len(self.coefficients) - 1:
+   22:                 if i == len(self.coefficients) - 2:
+--------------------------------------------------------------------------------
+poly1: 0x
+poly2: 
+Sum: 
+Difference: 
+Product: 
+Evaluation of poly1 at x=2: 14
+Evaluation of poly at a,b: -2, 23
+2.5
+1.25
+1.875
+1.5625
+1.40625
+1.484375
+1.4453125
+1.42578125
+1.416015625
+1.4111328125
+1.41357421875
+1.414794921875
+1.4141845703125
+1.41448974609375
+1.414337158203125
+1.4142608642578125
+1.4142227172851562
+1.4142036437988281
+1.4142131805419922
+1.4142179489135742
+1.4142155647277832
+1.4142143726348877
+1.41421377658844
+Root of 0x within [0, 5]: 1.41421377658844
+[0.00362 s] survived
+   - [#  69] COI Polynomial: 
+--------------------------------------------------------------------------------
+   17:         for (i, coef) in enumerate(self.coefficients):
+   18:             if coef == 0:
+   19:                 continue
+   20:             term = str(coef)
+-  21:             if i < len(self.coefficients) - 1:
++  21:             if not (i < len(self.coefficients) - 1):
+   22:                 if i == len(self.coefficients) - 2:
+   23:                     term += 'x'
+   24:                 else:
+   25:                     term += 'x^' + str((len(self.coefficients) - i) - 1)
+--------------------------------------------------------------------------------
+poly1: 3 + 2x^0
+poly2: 1 + -1x^0
+Sum: 3 + 1 + 1x^0
+Difference: 3 + -1 + 3x^0
+Product: 3 + -3 + 2 + -2x^0
+Evaluation of poly1 at x=2: 14
+Evaluation of poly at a,b: -2, 23
+2.5
+1.25
+1.875
+1.5625
+1.40625
+1.484375
+1.4453125
+1.42578125
+1.416015625
+1.4111328125
+1.41357421875
+1.414794921875
+1.4141845703125
+1.41448974609375
+1.414337158203125
+1.4142608642578125
+1.4142227172851562
+1.4142036437988281
+1.4142131805419922
+1.4142179489135742
+1.4142155647277832
+1.4142143726348877
+1.41421377658844
+Root of 1 + -2x^0 within [0, 5]: 1.41421377658844
+[0.00366 s] survived
+   - [#  70] COI Polynomial: 
+--------------------------------------------------------------------------------
+   18:             if coef == 0:
+   19:                 continue
+   20:             term = str(coef)
+   21:             if i < len(self.coefficients) - 1:
+-  22:                 if i == len(self.coefficients) - 2:
++  22:                 if not (i == len(self.coefficients) - 2):
+   23:                     term += 'x'
+   24:                 else:
+   25:                     term += 'x^' + str((len(self.coefficients) - i) - 1)
+   26:             terms.append(term)
+--------------------------------------------------------------------------------
+poly1: 3x + 2
+poly2: 1x^1 + -1
+Sum: 3x + 1x^1 + 1
+Difference: 3x + -1x^1 + 3
+Product: 3x + -3x + 2x^1 + -2
+Evaluation of poly1 at x=2: 14
+Evaluation of poly at a,b: -2, 23
+2.5
+1.25
+1.875
+1.5625
+1.40625
+1.484375
+1.4453125
+1.42578125
+1.416015625
+1.4111328125
+1.41357421875
+1.414794921875
+1.4141845703125
+1.41448974609375
+1.414337158203125
+1.4142608642578125
+1.4142227172851562
+1.4142036437988281
+1.4142131805419922
+1.4142179489135742
+1.4142155647277832
+1.4142143726348877
+1.41421377658844
+Root of 1x + -2 within [0, 5]: 1.41421377658844
+[0.00384 s] survived
+   - [#  71] COI Polynomial: 
+--------------------------------------------------------------------------------
+   81:             :param epsilon: Tolerance for the root approximation.
+   82:             :param max_iterations: Maximum number of iterations.
+   83:             :return: Approximated root within the specified interval.
+   84:             '''
+-  85:         if self.evaluate(a) * self.evaluate(b) > 0:
++  85:         if not (self.evaluate(a) * self.evaluate(b) > 0):
+   86:             raise ValueError('The chosen interval does not contain a root.')
+   87:         
+   88:         for _ in range(max_iterations):
+   89:             c = (a + b) / 2
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: 1x + -1
+Sum: 3x^2 + 1x + 1
+Difference: 3x^2 + -1x + 3
+Product: 3x^3 + -3x^2 + 2x + -2
+Evaluation of poly1 at x=2: 14
+Evaluation of poly at a,b: -2, 23
+[0.00000 s] incompetent
+   - [#  72] COI Polynomial: 
+--------------------------------------------------------------------------------
+   87:         
+   88:         for _ in range(max_iterations):
+   89:             c = (a + b) / 2
+   90:             print(c)
+-  91:             if abs(self.evaluate(c)) < epsilon:
++  91:             if not (abs(self.evaluate(c)) < epsilon):
+   92:                 return c
+   93:             if self.evaluate(c) * self.evaluate(a) < 0:
+   94:                 b = c
+   95:             else:
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: 1x + -1
+Sum: 3x^2 + 1x + 1
+Difference: 3x^2 + -1x + 3
+Product: 3x^3 + -3x^2 + 2x + -2
+Evaluation of poly1 at x=2: 14
+Evaluation of poly at a,b: -2, 23
+2.5
+Root of 1x^2 + -2 within [0, 5]: 2.5
+[0.00403 s] survived
+   - [#  73] COI Polynomial: 
+--------------------------------------------------------------------------------
+   89:             c = (a + b) / 2
+   90:             print(c)
+   91:             if abs(self.evaluate(c)) < epsilon:
+   92:                 return c
+-  93:             if self.evaluate(c) * self.evaluate(a) < 0:
++  93:             if not (self.evaluate(c) * self.evaluate(a) < 0):
+   94:                 b = c
+   95:             else:
+   96:                 a = c
+   97:         
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: 1x + -1
+Sum: 3x^2 + 1x + 1
+Difference: 3x^2 + -1x + 3
+Product: 3x^3 + -3x^2 + 2x + -2
+Evaluation of poly1 at x=2: 14
+Evaluation of poly at a,b: -2, 23
+2.5
+3.75
+3.125
+2.8125
+2.65625
+2.578125
+2.5390625
+2.51953125
+2.509765625
+2.5048828125
+2.50244140625
+2.501220703125
+2.5006103515625
+2.50030517578125
+2.500152587890625
+2.5000762939453125
+2.5000381469726562
+2.500019073486328
+2.500009536743164
+2.500004768371582
+2.500002384185791
+2.5000011920928955
+2.5000005960464478
+2.500000298023224
+2.500000149011612
+2.500000074505806
+2.500000037252903
+2.5000000186264515
+2.5000000093132257
+2.500000004656613
+2.5000000023283064
+2.500000001164153
+2.5000000005820766
+2.5000000002910383
+2.500000000145519
+2.5000000000727596
+2.50000000003638
+2.50000000001819
+2.500000000009095
+2.5000000000045475
+2.5000000000022737
+2.500000000001137
+2.5000000000005684
+2.500000000000284
+2.500000000000142
+2.500000000000071
+2.5000000000000355
+2.5000000000000178
+2.500000000000009
+2.5000000000000044
+2.500000000000002
+2.500000000000001
+2.5000000000000004
+2.5
+2.5
+2.5
+2.5
+2.5
+2.5
+2.5
+2.5
+2.5
+2.5
+2.5
+2.5
+2.5
+2.5
+2.5
+2.5
+2.5
+2.5
+2.5
+2.5
+2.5
+2.5
+2.5
+2.5
+2.5
+2.5
+2.5
+2.5
+2.5
+2.5
+2.5
+2.5
+2.5
+2.5
+2.5
+2.5
+2.5
+2.5
+2.5
+2.5
+2.5
+2.5
+2.5
+2.5
+2.5
+2.5
+2.5
+[0.00000 s] incompetent
+   - [#  74] SIR Polynomial: 
+--------------------------------------------------------------------------------
+   69:     def get_derivative_coefficients(self):
+   70:         '''
+   71:         Return the coefficients of the derivative polynomial.
+   72:         '''
+-  73:         return [i * coeff for (i, coeff) in enumerate(list(reversed(self.coefficients))[:-1])]
++  73:         return [i * coeff for (i, coeff) in enumerate(list(reversed(self.coefficients))[:])]
+   74:     
+   75:     
+   76:     def find_root_bisection(self, a, b, epsilon=1e-06, max_iterations=100):
+   77:         '''
+--------------------------------------------------------------------------------
+poly1: 3x^2 + 2
+poly2: 1x + -1
+Sum: 3x^2 + 1x + 1
+Difference: 3x^2 + -1x + 3
+Product: 3x^3 + -3x^2 + 2x + -2
+Evaluation of poly1 at x=2: 14
+Evaluation of poly at a,b: -2, 23
+2.5
+1.25
+1.875
+1.5625
+1.40625
+1.484375
+1.4453125
+1.42578125
+1.416015625
+1.4111328125
+1.41357421875
+1.414794921875
+1.4141845703125
+1.41448974609375
+1.414337158203125
+1.4142608642578125
+1.4142227172851562
+1.4142036437988281
+1.4142131805419922
+1.4142179489135742
+1.4142155647277832
+1.4142143726348877
+1.41421377658844
+Root of 1x^2 + -2 within [0, 5]: 1.41421377658844
+[0.00396 s] survived
+[*] Mutation score [4.14335 s]: 0.0%
+   - all: 74
+   - killed: 0 (0.0%)
+   - survived: 34 (45.9%)
+   - incompetent: 40 (54.1%)
+   - timeout: 0 (0.0%)
